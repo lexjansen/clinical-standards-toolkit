@@ -1,0 +1,3084 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8"/>
+<meta content="SAS 9.4" name="generator"/>
+<title>SAS Output</title>
+<style>
+/*<![CDATA[*/
+.body.c > table, .body.c > pre, .body.c div > table,
+.body.c div > pre, .body.c > table, .body.c > pre,
+.body.j > table, .body.j > pre, .body.j div > table,
+.body.j div > pre, .body.j > table, .body.j > pre,
+.body.c p.note, .body.c p.warning, .body.c p.error, .body.c p.fatal,
+.body.j p.note, .body.j p.warning, .body.j p.error, .body.j p.fatal,
+.body.c > table.layoutcontainer, .body.j > table.layoutcontainer { margin-left: auto; margin-right: auto }
+.layoutregion.l table, .layoutregion.l pre, .layoutregion.l p.note,
+.layoutregion.l p.warning, .layoutregion.l p.error, .layoutregion.l p.fatal { margin-left: 0 }
+.layoutregion.c table, .layoutregion.c pre, .layoutregion.c p.note,
+.layoutregion.c p.warning, .layoutregion.c p.error, .layoutregion.c p.fatal { margin-left: auto; margin-right: auto }
+.layoutregion.r table, .layoutregion.r pre, .layoutregion.r p.note,
+.layoutregion.r table, .layoutregion.r pre, .layoutregion.r p.note,
+.layoutregion.r p.warning, .layoutregion.r p.error, .layoutregion.r p.fatal { margin-right: 0 }
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block }
+html{ font-size: 100% }
+.body { margin: 1em; font-size: 13px; line-height: 1.231 }
+sup { position: relative; vertical-align: baseline; bottom: 0.25em; font-size: 0.8em }
+sub { position: relative; vertical-align: baseline; top: 0.25em; font-size: 0.8em }
+ul, ol { margin: 1em 0; padding: 0 0 0 40px }
+dd { margin: 0 0 0 40px }
+nav ul, nav ol { list-style: none; list-style-image: none; margin: 0; padding: 0 }
+img { border: 0; vertical-align: middle }
+svg:not(:root) { overflow: hidden }
+figure { margin: 0 }
+table { border-collapse: collapse; border-spacing: 0 }
+.layoutcontainer { border-collapse: separate; border-spacing: 0 }
+p { margin-top: 0; text-align: left }
+h1.heading1 { text-align: left }
+h2.heading2 { text-align: left }
+h3.heading3 { text-align: left }
+h4.heading4 { text-align: left }
+h5.heading5 { text-align: left }
+h6.heading6 { text-align: left }
+span { text-align: left }
+table { margin-bottom: 1em }
+td, th { text-align: left; padding: 3px 6px; vertical-align: top }
+td[class$="fixed"], th[class$="fixed"] { white-space: pre }
+section, article { padding-top: 1px; padding-bottom: 8px }
+hr.pagebreak { height: 0px; border: 0; border-bottom: 1px solid #c0c0c0; margin: 1em 0 }
+.stacked-value { text-align: left; display: block }
+.stacked-cell > .stacked-value, td.data > td.data, th.data > td.data, th.data > th.data, td.data > th.data, th.header > th.header { border: 0 }
+.stacked-cell > div.data { border-width: 0 }
+.systitleandfootercontainer { white-space: nowrap; margin-bottom: 1em }
+.systitleandfootercontainer > p { margin: 0 }
+.systitleandfootercontainer > p > span { display: inline-block; width: 100%; white-space: normal }
+.batch { display: table }
+.toc { display: none }
+.proc_note_group, .proc_title_group { margin-bottom: 1em }
+p.proctitle { margin: 0 }
+p.note, p.warning, p.error, p.fatal { display: table }
+.notebanner, .warnbanner, .errorbanner, .fatalbanner,
+.notecontent, .warncontent, .errorcontent, .fatalcontent { display: table-cell; padding: 0.5em }
+.notebanner, .warnbanner, .errorbanner, .fatalbanner { padding-right: 0 }
+.body > div > ol li { text-align: left }
+.beforecaption > h4 { margin-top: 0; margin-bottom: 0 }
+.c { text-align: center }
+.r { text-align: right }
+.l { text-align: left }
+.j { text-align: justify }
+.d { text-align: right }
+.b { vertical-align: bottom }
+.m { vertical-align: middle }
+.t { vertical-align: top }
+.accessiblecaption {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: bold;
+}
+a:active { color: #800080 }
+.aftercaption {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: bold;
+    padding-top: 4pt;
+}
+.batch > colgroup {
+    border-left: 1px solid #c1c1c1;
+    border-right: 1px solid #c1c1c1;
+}
+.batch > tbody, .batch > thead, .batch > tfoot {
+    border-top: 1px solid #c1c1c1;
+    border-bottom: 1px solid #c1c1c1;
+}
+.batch { border: hidden; }
+.batch {
+    background-color: #fafbfe;
+    border: 1px solid #c1c1c1;
+    border-collapse: separate;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: 'SAS Monospace', 'Courier New', Courier, monospace;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+    padding: 7px;
+    }
+.beforecaption {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: bold;
+}
+.body {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+.bodydate {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #000000;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+    text-align: right;
+    vertical-align: top;
+    width: 100%;
+}
+.bycontentfolder {
+    color: #000000;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.byline {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: bold;
+}
+.bylinecontainer > col, .bylinecontainer > colgroup > col, .bylinecontainer > colgroup, .bylinecontainer > tr, .bylinecontainer > * > tr, .bylinecontainer > thead, .bylinecontainer > tbody, .bylinecontainer > tfoot { border: none; }
+.bylinecontainer {
+    background-color: #fafbfe;
+    border: none;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.caption {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: bold;
+}
+.cell, .container {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+}
+.contentfolder, .contentitem {
+    color: #000000;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.contentproclabel, .contentprocname {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: bold;
+}
+.contents {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: decimal;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+.contentsdate {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.contenttitle {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: bold;
+}
+.continued {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: bold;
+    width: 100%;
+}
+.data, .dataemphasis {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+}
+.dataemphasisfixed {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: normal;
+}
+.dataempty {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+}
+.datafixed {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    font-family: 'Courier New', Courier;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+}
+.datastrong {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: bold;
+}
+.datastrongfixed {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: bold;
+}
+.date {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.document {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+}
+.errorbanner {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: bold;
+}
+.errorcontent {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+}
+.errorcontentfixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+}
+.extendedpage {
+    background-color: #fafbfe;
+    border-style: solid;
+    border-width: 1pt;
+    color: #112277;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: normal;
+    text-align: center;
+}
+.fatalbanner {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: bold;
+}
+.fatalcontent {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+}
+.fatalcontentfixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+}
+.folderaction {
+    color: #000000;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.footer {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: bold;
+}
+.footeremphasis {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: normal;
+}
+.footeremphasisfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: normal;
+}
+.footerempty {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: bold;
+}
+.footerfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+}
+.footerstrong {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: bold;
+}
+.footerstrongfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: bold;
+}
+.frame {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+}
+.graph > colgroup {
+    border-left: 1px solid #c1c1c1;
+    border-right: 1px solid #c1c1c1;
+}
+.graph > tbody, .graph > thead, .graph > tfoot {
+    border-top: 1px solid #c1c1c1;
+    border-bottom: 1px solid #c1c1c1;
+}
+.graph { border: hidden; }
+.graph {
+    background-color: #fafbfe;
+    border: 1px solid #c1c1c1;
+    border-collapse: separate;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+    }
+.header {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: bold;
+}
+.headeremphasis {
+    background-color: #d8dbd3;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: normal;
+}
+.headeremphasisfixed {
+    background-color: #d8dbd3;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: normal;
+}
+.headerempty {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: bold;
+}
+.headerfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+}
+.headersandfooters {
+    background-color: #edf2f9;
+    color: #000000;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: bold;
+}
+.headerstrong {
+    background-color: #d8dbd3;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: bold;
+}
+.headerstrongfixed {
+    background-color: #d8dbd3;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: bold;
+}
+.heading1, .heading2, .heading3, .heading4, .heading5, .heading6 { font-family: Arial, Helvetica, sans-serif }
+.index {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+}
+.indexaction, .indexitem {
+    color: #000000;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.indexprocname {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: bold;
+}
+.indextitle {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: bold;
+}
+.layoutcontainer, .layoutregion {
+    border-width: 0;
+    border-spacing: 30px;
+}
+.linecontent {
+    background-color: #fafbfe;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+}
+a:link { color: #0000ff }
+.list {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: disc;
+}
+.list10 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+}
+.list2 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: circle;
+}
+.list3, .list4, .list5, .list6, .list7, .list8, .list9 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+}
+.listitem {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: disc;
+}
+.listitem10 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+}
+.listitem2 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: circle;
+}
+.listitem3, .listitem4, .listitem5, .listitem6, .listitem7, .listitem8, .listitem9 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+}
+.note {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+}
+.notebanner {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: bold;
+}
+.notecontent {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+}
+.notecontentfixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+}
+.output > colgroup {
+    border-left: 1px solid #c1c1c1;
+    border-right: 1px solid #c1c1c1;
+}
+.output > tbody, .output > thead, .output > tfoot {
+    border-top: 1px solid #c1c1c1;
+    border-bottom: 1px solid #c1c1c1;
+}
+.output { border: hidden; }
+.output {
+    background-color: #fafbfe;
+    border: 1px solid #c1c1c1;
+    border-collapse: separate;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+    }
+.pageno {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: bold;
+    text-align: right;
+    vertical-align: top;
+}
+.pages {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: decimal;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+.pagesdate {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.pagesitem {
+    color: #000000;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.pagesproclabel, .pagesprocname {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: bold;
+}
+.pagestitle {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: bold;
+}
+.paragraph {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+}
+.parskip > col, .parskip > colgroup > col, .parskip > colgroup, .parskip > tr, .parskip > * > tr, .parskip > thead, .parskip > tbody, .parskip > tfoot { border: none; }
+.parskip {
+    border: none;
+    border-spacing: 0;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: bold;
+    }
+.prepage {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+    text-align: left;
+}
+.proctitle {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: bold;
+}
+.proctitlefixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: bold;
+}
+.rowfooter {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: bold;
+}
+.rowfooteremphasis {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: normal;
+}
+.rowfooteremphasisfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: normal;
+}
+.rowfooterempty {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: bold;
+}
+.rowfooterfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+}
+.rowfooterstrong {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: bold;
+}
+.rowfooterstrongfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: bold;
+}
+.rowheader {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: bold;
+}
+.rowheaderemphasis {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: normal;
+}
+.rowheaderemphasisfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: normal;
+}
+.rowheaderempty {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: bold;
+}
+.rowheaderfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+}
+.rowheaderstrong {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: bold;
+}
+.rowheaderstrongfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: bold;
+}
+.systemfooter, .systemfooter10, .systemfooter2, .systemfooter3, .systemfooter4, .systemfooter5, .systemfooter6, .systemfooter7, .systemfooter8, .systemfooter9 {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+}
+.systemtitle, .systemtitle10, .systemtitle2, .systemtitle3, .systemtitle4, .systemtitle5, .systemtitle6, .systemtitle7, .systemtitle8, .systemtitle9 {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: bold;
+}
+.systitleandfootercontainer > col, .systitleandfootercontainer > colgroup > col, .systitleandfootercontainer > colgroup, .systitleandfootercontainer > tr, .systitleandfootercontainer > * > tr, .systitleandfootercontainer > thead, .systitleandfootercontainer > tbody, .systitleandfootercontainer > tfoot { border: none; }
+.systitleandfootercontainer {
+    background-color: #fafbfe;
+    border: none;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.table > col, .table > colgroup > col {
+    border-left: 1px solid #c1c1c1;
+    border-right: 0 solid #c1c1c1;
+}
+.table > tr, .table > * > tr {
+    border-top: 1px solid #c1c1c1;
+    border-bottom: 0 solid #c1c1c1;
+}
+.table { border: hidden; }
+.table {
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 1px 0 0 1px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    }
+.titleandnotecontainer > col, .titleandnotecontainer > colgroup > col, .titleandnotecontainer > colgroup, .titleandnotecontainer > tr, .titleandnotecontainer > * > tr, .titleandnotecontainer > thead, .titleandnotecontainer > tbody, .titleandnotecontainer > tfoot { border: none; }
+.titleandnotecontainer {
+    background-color: #fafbfe;
+    border: none;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.titlesandfooters {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: bold;
+}
+.usertext {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+}
+a:visited { color: #800080 }
+.warnbanner {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: bold;
+}
+.warncontent {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Avenir Next for SAS', Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+}
+.warncontentfixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+}
+/*]]>*/
+</style>
+</head>
+<body class="body">
+<div style="padding-bottom: 8px; padding-top: 1px">
+<div id="IDX" class="systitleandfootercontainer" style="border-spacing: 1px">
+<p><span class="systemtitle">openCST Define-XML 2.1 Metadata Structures (Define-XML 2.1.5 - NCI Controlled Terminology Package 52 -2022-12-26)</span> </p>
+</div>
+<div style="padding-bottom: 8px; padding-top: 1px">
+<table class="table" style="border-spacing: 0" aria-label="Data Set WORK.CONTENTS">
+<caption aria-label="Data Set WORK.CONTENTS"></caption>
+<colgroup><col/></colgroup><colgroup><col/><col/><col/><col/><col/><col/><col/><col/></colgroup>
+<thead>
+<tr>
+<th class="r header" scope="col">Obs</th>
+<th class="header" scope="col">Library Member Name</th>
+<th class="header" scope="col">Data Set Label</th>
+<th class="r header" scope="col">Variable Number</th>
+<th class="header" scope="col">Variable Name</th>
+<th class="header" scope="col">Variable Label</th>
+<th class="r header" scope="col">Variable Type</th>
+<th class="r header" scope="col">Variable Length</th>
+<th class="header" scope="col">valuelist</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="r rowheader" scope="row">1</th>
+<td class="data">source_study</td>
+<td class="data">Source Study Metadata</td>
+<td class="r data">1</td>
+<td class="data">sasref</td>
+<td class="data">SASreferences sourcedata libref</td>
+<td class="r data">char</td>
+<td class="r data">8</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">2</th>
+<td class="data">source_study</td>
+<td class="data">Source Study Metadata</td>
+<td class="r data">2</td>
+<td class="data">fileoid</td>
+<td class="data">Unique identifier for the file</td>
+<td class="r data">char</td>
+<td class="r data">128</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">3</th>
+<td class="data">source_study</td>
+<td class="data">Source Study Metadata</td>
+<td class="r data">3</td>
+<td class="data">originator</td>
+<td class="data">The organization that generated the Define-XML file</td>
+<td class="r data">char</td>
+<td class="r data">128</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">4</th>
+<td class="data">source_study</td>
+<td class="data">Source Study Metadata</td>
+<td class="r data">4</td>
+<td class="data">studyoid</td>
+<td class="data">Unique identifier for the study</td>
+<td class="r data">char</td>
+<td class="r data">128</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">5</th>
+<td class="data">source_study</td>
+<td class="data">Source Study Metadata</td>
+<td class="r data">5</td>
+<td class="data">context</td>
+<td class="data">Context in which the Define-XML document is used</td>
+<td class="r data">char</td>
+<td class="r data">2000</td>
+<td class="data">NCIt: C170448 - [Submission, Other]</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">6</th>
+<td class="data">source_study</td>
+<td class="data">Source Study Metadata</td>
+<td class="r data">6</td>
+<td class="data">studyname</td>
+<td class="data">Short external name for the study</td>
+<td class="r data">char</td>
+<td class="r data">128</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">7</th>
+<td class="data">source_study</td>
+<td class="data">Source Study Metadata</td>
+<td class="r data">7</td>
+<td class="data">studydescription</td>
+<td class="data">Description of the study</td>
+<td class="r data">char</td>
+<td class="r data">2000</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">8</th>
+<td class="data">source_study</td>
+<td class="data">Source Study Metadata</td>
+<td class="r data">8</td>
+<td class="data">protocolname</td>
+<td class="data">Sponsors internal name for the protocol</td>
+<td class="r data">char</td>
+<td class="r data">128</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">9</th>
+<td class="data">source_study</td>
+<td class="data">Source Study Metadata</td>
+<td class="r data">9</td>
+<td class="data">comment</td>
+<td class="data">MetadataVersion Comment</td>
+<td class="r data">char</td>
+<td class="r data">1000</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">10</th>
+<td class="data">source_study</td>
+<td class="data">Source Study Metadata</td>
+<td class="r data">10</td>
+<td class="data">metadataversionname</td>
+<td class="data">MetadataVersion Name</td>
+<td class="r data">char</td>
+<td class="r data">1000</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">11</th>
+<td class="data">source_study</td>
+<td class="data">Source Study Metadata</td>
+<td class="r data">11</td>
+<td class="data">metadataversiondescription</td>
+<td class="data">MetadataVersion Description</td>
+<td class="r data">char</td>
+<td class="r data">1000</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">12</th>
+<td class="data">source_study</td>
+<td class="data">Source Study Metadata</td>
+<td class="r data">12</td>
+<td class="data">studyversion</td>
+<td class="data">Unique study version identifier</td>
+<td class="r data">char</td>
+<td class="r data">128</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">13</th>
+<td class="data">source_study</td>
+<td class="data">Source Study Metadata</td>
+<td class="r data">13</td>
+<td class="data">standard</td>
+<td class="data">Name of Standard</td>
+<td class="r data">char</td>
+<td class="r data">20</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">14</th>
+<td class="data">source_study</td>
+<td class="data">Source Study Metadata</td>
+<td class="r data">14</td>
+<td class="data">standardversion</td>
+<td class="data">Version of Standard</td>
+<td class="r data">char</td>
+<td class="r data">20</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">15</th>
+<td class="data">source_standards</td>
+<td class="data">Source Standard Metadata</td>
+<td class="r data">1</td>
+<td class="data">sasref</td>
+<td class="data">SASreferences sourcedata libref</td>
+<td class="r data">char</td>
+<td class="r data">8</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">16</th>
+<td class="data">source_standards</td>
+<td class="data">Source Standard Metadata</td>
+<td class="r data">2</td>
+<td class="data">cdiscstandard</td>
+<td class="data">Name of Standard</td>
+<td class="r data">char</td>
+<td class="r data">40</td>
+<td class="data">NCIt: C170452 - [ADaMIG, BIMO, CDISC/NCI, SDTMIG, SDTMIG-AP, SDTMIG-MD, SENDIG, SENDIG-AR, SENDIG-DART]</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">17</th>
+<td class="data">source_standards</td>
+<td class="data">Source Standard Metadata</td>
+<td class="r data">3</td>
+<td class="data">cdiscstandardversion</td>
+<td class="data">Version of Standard</td>
+<td class="r data">char</td>
+<td class="r data">20</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">18</th>
+<td class="data">source_standards</td>
+<td class="data">Source Standard Metadata</td>
+<td class="r data">4</td>
+<td class="data">order</td>
+<td class="data">Standard order</td>
+<td class="r data">num</td>
+<td class="r data">8</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">19</th>
+<td class="data">source_standards</td>
+<td class="data">Source Standard Metadata</td>
+<td class="r data">5</td>
+<td class="data">type</td>
+<td class="data">Type of Standard</td>
+<td class="r data">char</td>
+<td class="r data">20</td>
+<td class="data">NCIt: C170451 - [CT, IG]</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">20</th>
+<td class="data">source_standards</td>
+<td class="data">Source Standard Metadata</td>
+<td class="r data">6</td>
+<td class="data">publishingset</td>
+<td class="data">Set of published files of Standard when Type=&apos;CT&apos;</td>
+<td class="r data">char</td>
+<td class="r data">20</td>
+<td class="data">NCIt: C172331 - [ADaM, CDASH, DEFINE-XML, SDTM, SEND]</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">21</th>
+<td class="data">source_standards</td>
+<td class="data">Source Standard Metadata</td>
+<td class="r data">7</td>
+<td class="data">status</td>
+<td class="data">Status of Standard</td>
+<td class="r data">char</td>
+<td class="r data">20</td>
+<td class="data">NCIt: C172332- [Draft, Final, Provisional] - Extensible</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">22</th>
+<td class="data">source_standards</td>
+<td class="data">Source Standard Metadata</td>
+<td class="r data">8</td>
+<td class="data">comment</td>
+<td class="data">Comment</td>
+<td class="r data">char</td>
+<td class="r data">1000</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">23</th>
+<td class="data">source_standards</td>
+<td class="data">Source Standard Metadata</td>
+<td class="r data">9</td>
+<td class="data">studyversion</td>
+<td class="data">Unique study version identifier</td>
+<td class="r data">char</td>
+<td class="r data">128</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">24</th>
+<td class="data">source_standards</td>
+<td class="data">Source Standard Metadata</td>
+<td class="r data">10</td>
+<td class="data">standard</td>
+<td class="data">Name of Standard</td>
+<td class="r data">char</td>
+<td class="r data">20</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">25</th>
+<td class="data">source_standards</td>
+<td class="data">Source Standard Metadata</td>
+<td class="r data">11</td>
+<td class="data">standardversion</td>
+<td class="data">Version of Standard</td>
+<td class="r data">char</td>
+<td class="r data">20</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">26</th>
+<td class="data">source_tables</td>
+<td class="data">Source Table Metadata</td>
+<td class="r data">1</td>
+<td class="data">sasref</td>
+<td class="data">SASreferences sourcedata libref</td>
+<td class="r data">char</td>
+<td class="r data">8</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">27</th>
+<td class="data">source_tables</td>
+<td class="data">Source Table Metadata</td>
+<td class="r data">2</td>
+<td class="data">table</td>
+<td class="data">Table Name</td>
+<td class="r data">char</td>
+<td class="r data">32</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">28</th>
+<td class="data">source_tables</td>
+<td class="data">Source Table Metadata</td>
+<td class="r data">3</td>
+<td class="data">label</td>
+<td class="data">Table Label</td>
+<td class="r data">char</td>
+<td class="r data">200</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">29</th>
+<td class="data">source_tables</td>
+<td class="data">Source Table Metadata</td>
+<td class="r data">4</td>
+<td class="data">order</td>
+<td class="data">Table order</td>
+<td class="r data">num</td>
+<td class="r data">8</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">30</th>
+<td class="data">source_tables</td>
+<td class="data">Source Table Metadata</td>
+<td class="r data">5</td>
+<td class="data">repeating</td>
+<td class="data">Can Itemgroup occur repeatedly within the containing Form?</td>
+<td class="r data">char</td>
+<td class="r data">3</td>
+<td class="data">[Yes, No]</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">31</th>
+<td class="data">source_tables</td>
+<td class="data">Source Table Metadata</td>
+<td class="r data">6</td>
+<td class="data">isreferencedata</td>
+<td class="data">Can Itemgroup occur only within a ReferenceData element?</td>
+<td class="r data">char</td>
+<td class="r data">3</td>
+<td class="data">[Yes, No]</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">32</th>
+<td class="data">source_tables</td>
+<td class="data">Source Table Metadata</td>
+<td class="r data">7</td>
+<td class="data">domain</td>
+<td class="data">Domain</td>
+<td class="r data">char</td>
+<td class="r data">32</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">33</th>
+<td class="data">source_tables</td>
+<td class="data">Source Table Metadata</td>
+<td class="r data">8</td>
+<td class="data">domaindescription</td>
+<td class="data">Domain description</td>
+<td class="r data">char</td>
+<td class="r data">256</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">34</th>
+<td class="data">source_tables</td>
+<td class="data">Source Table Metadata</td>
+<td class="r data">9</td>
+<td class="data">class</td>
+<td class="data">Observation Class within Standard</td>
+<td class="r data">char</td>
+<td class="r data">40</td>
+<td class="data">NCIt: C103329 - [ADAM OTHER, C103375 BASIC DATA STRUCTURE, DEVICE LEVEL ANALYSIS DATASET, EVENTS, FINDINGS, FINDINGS ABOUT, INTERVENTIONS, MEDICAL DEVICE BASIC DATA STRUCTURE, MEDICAL DEVICE OCCURRENCE DATA STRUCTURE, OCCURRENCE DATA STRUCTURE, RELATIONSHIP, SPECIAL PURPOSE, STUDY REFERENCE, SUBJECT LEVEL ANALYSIS DATASET, TRIAL DESIGN]</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">35</th>
+<td class="data">source_tables</td>
+<td class="data">Source Table Metadata</td>
+<td class="r data">10</td>
+<td class="data">subclass</td>
+<td class="data">Observation SubClass within Standard</td>
+<td class="r data">char</td>
+<td class="r data">40</td>
+<td class="data">NCIt: C165635, C177903, C176227 - [ADVERSE EVENT, MEDICAL DEVICE TIME-TO-EVENT, NON-COMPARTMENTAL ANALYSIS, POPULATION PHARMACOKINETIC ANALYSIS, TIME-TO-EVENT]</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">36</th>
+<td class="data">source_tables</td>
+<td class="data">Source Table Metadata</td>
+<td class="r data">11</td>
+<td class="data">xmlpath</td>
+<td class="data">(Relative) path to XPT file</td>
+<td class="r data">char</td>
+<td class="r data">200</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">37</th>
+<td class="data">source_tables</td>
+<td class="data">Source Table Metadata</td>
+<td class="r data">12</td>
+<td class="data">xmltitle</td>
+<td class="data">Title for XPT file</td>
+<td class="r data">char</td>
+<td class="r data">200</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">38</th>
+<td class="data">source_tables</td>
+<td class="data">Source Table Metadata</td>
+<td class="r data">13</td>
+<td class="data">structure</td>
+<td class="data">Table Structure</td>
+<td class="r data">char</td>
+<td class="r data">200</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">39</th>
+<td class="data">source_tables</td>
+<td class="data">Source Table Metadata</td>
+<td class="r data">14</td>
+<td class="data">purpose</td>
+<td class="data">Purpose</td>
+<td class="r data">char</td>
+<td class="r data">10</td>
+<td class="data">[Tabulation, Analysis]</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">40</th>
+<td class="data">source_tables</td>
+<td class="data">Source Table Metadata</td>
+<td class="r data">15</td>
+<td class="data">keys</td>
+<td class="data">Table Keys</td>
+<td class="r data">char</td>
+<td class="r data">200</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">41</th>
+<td class="data">source_tables</td>
+<td class="data">Source Table Metadata</td>
+<td class="r data">16</td>
+<td class="data">state</td>
+<td class="data">Data Set State</td>
+<td class="r data">char</td>
+<td class="r data">20</td>
+<td class="data">[Final, Draft]</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">42</th>
+<td class="data">source_tables</td>
+<td class="data">Source Table Metadata</td>
+<td class="r data">17</td>
+<td class="data">date</td>
+<td class="data">Release Date</td>
+<td class="r data">char</td>
+<td class="r data">20</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">43</th>
+<td class="data">source_tables</td>
+<td class="data">Source Table Metadata</td>
+<td class="r data">18</td>
+<td class="data">comment</td>
+<td class="data">Comment</td>
+<td class="r data">char</td>
+<td class="r data">1000</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">44</th>
+<td class="data">source_tables</td>
+<td class="data">Source Table Metadata</td>
+<td class="r data">19</td>
+<td class="data">cdiscstandard</td>
+<td class="data">Name of Standard</td>
+<td class="r data">char</td>
+<td class="r data">40</td>
+<td class="data">NCIt: C170452 - [ADaMIG, BIMO, CDISC/NCI, SDTMIG, SDTMIG-AP, SDTMIG-MD, SENDIG, SENDIG-AR, SENDIG-DART]</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">45</th>
+<td class="data">source_tables</td>
+<td class="data">Source Table Metadata</td>
+<td class="r data">20</td>
+<td class="data">cdiscstandardversion</td>
+<td class="data">Version of Standard</td>
+<td class="r data">char</td>
+<td class="r data">20</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">46</th>
+<td class="data">source_tables</td>
+<td class="data">Source Table Metadata</td>
+<td class="r data">21</td>
+<td class="data">isnonstandard</td>
+<td class="data">ItemGroup is non-standard?</td>
+<td class="r data">char</td>
+<td class="r data">3</td>
+<td class="data">[Yes]</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">47</th>
+<td class="data">source_tables</td>
+<td class="data">Source Table Metadata</td>
+<td class="r data">22</td>
+<td class="data">hasnodata</td>
+<td class="data">ItemGroup has no data?</td>
+<td class="r data">char</td>
+<td class="r data">3</td>
+<td class="data">[Yes]</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">48</th>
+<td class="data">source_tables</td>
+<td class="data">Source Table Metadata</td>
+<td class="r data">23</td>
+<td class="data">studyversion</td>
+<td class="data">Unique study version identifier</td>
+<td class="r data">char</td>
+<td class="r data">128</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">49</th>
+<td class="data">source_tables</td>
+<td class="data">Source Table Metadata</td>
+<td class="r data">24</td>
+<td class="data">standard</td>
+<td class="data">Name of Standard</td>
+<td class="r data">char</td>
+<td class="r data">20</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">50</th>
+<td class="data">source_tables</td>
+<td class="data">Source Table Metadata</td>
+<td class="r data">25</td>
+<td class="data">standardversion</td>
+<td class="data">Version of Standard</td>
+<td class="r data">char</td>
+<td class="r data">20</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">51</th>
+<td class="data">source_columns</td>
+<td class="data">Source Column Metadata</td>
+<td class="r data">1</td>
+<td class="data">sasref</td>
+<td class="data">SASreferences sourcedata libref</td>
+<td class="r data">char</td>
+<td class="r data">8</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">52</th>
+<td class="data">source_columns</td>
+<td class="data">Source Column Metadata</td>
+<td class="r data">2</td>
+<td class="data">table</td>
+<td class="data">Table Name</td>
+<td class="r data">char</td>
+<td class="r data">32</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">53</th>
+<td class="data">source_columns</td>
+<td class="data">Source Column Metadata</td>
+<td class="r data">3</td>
+<td class="data">column</td>
+<td class="data">Column Name</td>
+<td class="r data">char</td>
+<td class="r data">32</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">54</th>
+<td class="data">source_columns</td>
+<td class="data">Source Column Metadata</td>
+<td class="r data">4</td>
+<td class="data">label</td>
+<td class="data">Column Description</td>
+<td class="r data">char</td>
+<td class="r data">200</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">55</th>
+<td class="data">source_columns</td>
+<td class="data">Source Column Metadata</td>
+<td class="r data">5</td>
+<td class="data">order</td>
+<td class="data">Column Order</td>
+<td class="r data">num</td>
+<td class="r data">8</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">56</th>
+<td class="data">source_columns</td>
+<td class="data">Source Column Metadata</td>
+<td class="r data">6</td>
+<td class="data">type</td>
+<td class="data">Column Type</td>
+<td class="r data">char</td>
+<td class="r data">1</td>
+<td class="data">[N, C]</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">57</th>
+<td class="data">source_columns</td>
+<td class="data">Source Column Metadata</td>
+<td class="r data">7</td>
+<td class="data">length</td>
+<td class="data">Column Length</td>
+<td class="r data">num</td>
+<td class="r data">8</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">58</th>
+<td class="data">source_columns</td>
+<td class="data">Source Column Metadata</td>
+<td class="r data">8</td>
+<td class="data">displayformat</td>
+<td class="data">Display Format</td>
+<td class="r data">char</td>
+<td class="r data">200</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">59</th>
+<td class="data">source_columns</td>
+<td class="data">Source Column Metadata</td>
+<td class="r data">9</td>
+<td class="data">significantdigits</td>
+<td class="data">Significant Digits</td>
+<td class="r data">num</td>
+<td class="r data">8</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">60</th>
+<td class="data">source_columns</td>
+<td class="data">Source Column Metadata</td>
+<td class="r data">10</td>
+<td class="data">xmldatatype</td>
+<td class="data">XML Data Type</td>
+<td class="r data">char</td>
+<td class="r data">18</td>
+<td class="data">[text, integer, float, datetime, date, time, partialDate, partialTime, partialDatetime, incompleteDatetime, durationDatetime, intervalDatetime]</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">61</th>
+<td class="data">source_columns</td>
+<td class="data">Source Column Metadata</td>
+<td class="r data">11</td>
+<td class="data">xmlcodelist</td>
+<td class="data">SAS Format/XML Codelist</td>
+<td class="r data">char</td>
+<td class="r data">128</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">62</th>
+<td class="data">source_columns</td>
+<td class="data">Source Column Metadata</td>
+<td class="r data">12</td>
+<td class="data">core</td>
+<td class="data">Column Required, Optional, or Expected</td>
+<td class="r data">char</td>
+<td class="r data">10</td>
+<td class="data">[Req, Exp, Perm, Cond]</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">63</th>
+<td class="data">source_columns</td>
+<td class="data">Source Column Metadata</td>
+<td class="r data">13</td>
+<td class="data">mandatory</td>
+<td class="data">Column Mandatory</td>
+<td class="r data">char</td>
+<td class="r data">3</td>
+<td class="data">[Yes, No]</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">64</th>
+<td class="data">source_columns</td>
+<td class="data">Source Column Metadata</td>
+<td class="r data">14</td>
+<td class="data">origintype</td>
+<td class="data">Column Origin Type</td>
+<td class="r data">char</td>
+<td class="r data">40</td>
+<td class="data">NCIt: C170449 - [Assigned, Collected, Derived, Not Available, Other, Predecessor, Protocol]</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">65</th>
+<td class="data">source_columns</td>
+<td class="data">Source Column Metadata</td>
+<td class="r data">15</td>
+<td class="data">originsource</td>
+<td class="data">Column Origin Source</td>
+<td class="r data">char</td>
+<td class="r data">40</td>
+<td class="data">NCIt: C170450 - [Investigator, Sponsor, Subject, Vendor]</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">66</th>
+<td class="data">source_columns</td>
+<td class="data">Source Column Metadata</td>
+<td class="r data">16</td>
+<td class="data">origindescription</td>
+<td class="data">Column Origin Description</td>
+<td class="r data">char</td>
+<td class="r data">1000</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">67</th>
+<td class="data">source_columns</td>
+<td class="data">Source Column Metadata</td>
+<td class="r data">17</td>
+<td class="data">role</td>
+<td class="data">Column Role</td>
+<td class="r data">char</td>
+<td class="r data">200</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">68</th>
+<td class="data">source_columns</td>
+<td class="data">Source Column Metadata</td>
+<td class="r data">18</td>
+<td class="data">algorithm</td>
+<td class="data">Computational Algorithm or Method</td>
+<td class="r data">char</td>
+<td class="r data">1000</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">69</th>
+<td class="data">source_columns</td>
+<td class="data">Source Column Metadata</td>
+<td class="r data">19</td>
+<td class="data">algorithmname</td>
+<td class="data">Computational Algorithm or Method Name</td>
+<td class="r data">char</td>
+<td class="r data">200</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">70</th>
+<td class="data">source_columns</td>
+<td class="data">Source Column Metadata</td>
+<td class="r data">20</td>
+<td class="data">algorithmtype</td>
+<td class="data">Type of Algorithm</td>
+<td class="r data">char</td>
+<td class="r data">11</td>
+<td class="data">[Computation, Imputation]</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">71</th>
+<td class="data">source_columns</td>
+<td class="data">Source Column Metadata</td>
+<td class="r data">21</td>
+<td class="data">formalexpression</td>
+<td class="data">Formal Expression for Algorithm</td>
+<td class="r data">char</td>
+<td class="r data">1000</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">72</th>
+<td class="data">source_columns</td>
+<td class="data">Source Column Metadata</td>
+<td class="r data">22</td>
+<td class="data">formalexpressioncontext</td>
+<td class="data">Context to be used when evaluating the FormalExpression content</td>
+<td class="r data">char</td>
+<td class="r data">1000</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">73</th>
+<td class="data">source_columns</td>
+<td class="data">Source Column Metadata</td>
+<td class="r data">23</td>
+<td class="data">comment</td>
+<td class="data">Comment</td>
+<td class="r data">char</td>
+<td class="r data">1000</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">74</th>
+<td class="data">source_columns</td>
+<td class="data">Source Column Metadata</td>
+<td class="r data">24</td>
+<td class="data">isnonstandard</td>
+<td class="data">Item is non-standard?</td>
+<td class="r data">char</td>
+<td class="r data">3</td>
+<td class="data">[Yes]</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">75</th>
+<td class="data">source_columns</td>
+<td class="data">Source Column Metadata</td>
+<td class="r data">25</td>
+<td class="data">hasnodata</td>
+<td class="data">Item has no data?</td>
+<td class="r data">char</td>
+<td class="r data">3</td>
+<td class="data">[Yes]</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">76</th>
+<td class="data">source_columns</td>
+<td class="data">Source Column Metadata</td>
+<td class="r data">26</td>
+<td class="data">studyversion</td>
+<td class="data">Unique study version identifier</td>
+<td class="r data">char</td>
+<td class="r data">128</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">77</th>
+<td class="data">source_columns</td>
+<td class="data">Source Column Metadata</td>
+<td class="r data">27</td>
+<td class="data">standard</td>
+<td class="data">Name of Standard</td>
+<td class="r data">char</td>
+<td class="r data">20</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">78</th>
+<td class="data">source_columns</td>
+<td class="data">Source Column Metadata</td>
+<td class="r data">28</td>
+<td class="data">standardversion</td>
+<td class="data">Version of Standard</td>
+<td class="r data">char</td>
+<td class="r data">20</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">79</th>
+<td class="data">source_values</td>
+<td class="data">Source Value Metadata</td>
+<td class="r data">1</td>
+<td class="data">sasref</td>
+<td class="data">SASreferences sourcedata libref</td>
+<td class="r data">char</td>
+<td class="r data">8</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">80</th>
+<td class="data">source_values</td>
+<td class="data">Source Value Metadata</td>
+<td class="r data">2</td>
+<td class="data">table</td>
+<td class="data">Table Name</td>
+<td class="r data">char</td>
+<td class="r data">32</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">81</th>
+<td class="data">source_values</td>
+<td class="data">Source Value Metadata</td>
+<td class="r data">3</td>
+<td class="data">column</td>
+<td class="data">Column Name</td>
+<td class="r data">char</td>
+<td class="r data">32</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">82</th>
+<td class="data">source_values</td>
+<td class="data">Source Value Metadata</td>
+<td class="r data">4</td>
+<td class="data">name</td>
+<td class="data">Virtual Variable Name</td>
+<td class="r data">char</td>
+<td class="r data">32</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">83</th>
+<td class="data">source_values</td>
+<td class="data">Source Value Metadata</td>
+<td class="r data">5</td>
+<td class="data">valuelistdescription</td>
+<td class="data">ValueList Description</td>
+<td class="r data">char</td>
+<td class="r data">2000</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">84</th>
+<td class="data">source_values</td>
+<td class="data">Source Value Metadata</td>
+<td class="r data">6</td>
+<td class="data">whereclause</td>
+<td class="data">Where Clause</td>
+<td class="r data">char</td>
+<td class="r data">1000</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">85</th>
+<td class="data">source_values</td>
+<td class="data">Source Value Metadata</td>
+<td class="r data">7</td>
+<td class="data">whereclausecomment</td>
+<td class="data">Where Clause comment</td>
+<td class="r data">char</td>
+<td class="r data">1000</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">86</th>
+<td class="data">source_values</td>
+<td class="data">Source Value Metadata</td>
+<td class="r data">8</td>
+<td class="data">label</td>
+<td class="data">Column Description</td>
+<td class="r data">char</td>
+<td class="r data">200</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">87</th>
+<td class="data">source_values</td>
+<td class="data">Source Value Metadata</td>
+<td class="r data">9</td>
+<td class="data">order</td>
+<td class="data">Column Order</td>
+<td class="r data">num</td>
+<td class="r data">8</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">88</th>
+<td class="data">source_values</td>
+<td class="data">Source Value Metadata</td>
+<td class="r data">10</td>
+<td class="data">type</td>
+<td class="data">Column Type</td>
+<td class="r data">char</td>
+<td class="r data">1</td>
+<td class="data">[N, C]</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">89</th>
+<td class="data">source_values</td>
+<td class="data">Source Value Metadata</td>
+<td class="r data">11</td>
+<td class="data">length</td>
+<td class="data">Column Length</td>
+<td class="r data">num</td>
+<td class="r data">8</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">90</th>
+<td class="data">source_values</td>
+<td class="data">Source Value Metadata</td>
+<td class="r data">12</td>
+<td class="data">displayformat</td>
+<td class="data">Display Format</td>
+<td class="r data">char</td>
+<td class="r data">200</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">91</th>
+<td class="data">source_values</td>
+<td class="data">Source Value Metadata</td>
+<td class="r data">13</td>
+<td class="data">significantdigits</td>
+<td class="data">Significant Digits</td>
+<td class="r data">num</td>
+<td class="r data">8</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">92</th>
+<td class="data">source_values</td>
+<td class="data">Source Value Metadata</td>
+<td class="r data">14</td>
+<td class="data">xmldatatype</td>
+<td class="data">XML Data Type</td>
+<td class="r data">char</td>
+<td class="r data">18</td>
+<td class="data">[text, integer, float, datetime, date, time, partialDate, partialTime, partialDatetime, incompleteDatetime, durationDatetime, intervalDatetime]</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">93</th>
+<td class="data">source_values</td>
+<td class="data">Source Value Metadata</td>
+<td class="r data">15</td>
+<td class="data">xmlcodelist</td>
+<td class="data">SAS Format/XML Codelist</td>
+<td class="r data">char</td>
+<td class="r data">128</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">94</th>
+<td class="data">source_values</td>
+<td class="data">Source Value Metadata</td>
+<td class="r data">16</td>
+<td class="data">core</td>
+<td class="data">Column Required, Optional or Expected</td>
+<td class="r data">char</td>
+<td class="r data">10</td>
+<td class="data">[Req, Exp, Perm, Cond]</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">95</th>
+<td class="data">source_values</td>
+<td class="data">Source Value Metadata</td>
+<td class="r data">17</td>
+<td class="data">mandatory</td>
+<td class="data">Column Mandatory</td>
+<td class="r data">char</td>
+<td class="r data">3</td>
+<td class="data">[Yes, No]</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">96</th>
+<td class="data">source_values</td>
+<td class="data">Source Value Metadata</td>
+<td class="r data">18</td>
+<td class="data">origintype</td>
+<td class="data">Column Origin Type</td>
+<td class="r data">char</td>
+<td class="r data">40</td>
+<td class="data">NCIt: C170449 - [Assigned, Collected, Derived, Not Available, Other, Predecessor, Protocol]</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">97</th>
+<td class="data">source_values</td>
+<td class="data">Source Value Metadata</td>
+<td class="r data">19</td>
+<td class="data">originsource</td>
+<td class="data">Column Origin Source</td>
+<td class="r data">char</td>
+<td class="r data">40</td>
+<td class="data">NCIt: C170450 - [Investigator, Sponsor, Subject, Vendor]</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">98</th>
+<td class="data">source_values</td>
+<td class="data">Source Value Metadata</td>
+<td class="r data">20</td>
+<td class="data">origindescription</td>
+<td class="data">Column Origin Description</td>
+<td class="r data">char</td>
+<td class="r data">1000</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">99</th>
+<td class="data">source_values</td>
+<td class="data">Source Value Metadata</td>
+<td class="r data">21</td>
+<td class="data">role</td>
+<td class="data">Column Role</td>
+<td class="r data">char</td>
+<td class="r data">200</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">100</th>
+<td class="data">source_values</td>
+<td class="data">Source Value Metadata</td>
+<td class="r data">22</td>
+<td class="data">algorithm</td>
+<td class="data">Computational Algorithm or Method</td>
+<td class="r data">char</td>
+<td class="r data">1000</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">101</th>
+<td class="data">source_values</td>
+<td class="data">Source Value Metadata</td>
+<td class="r data">23</td>
+<td class="data">algorithmname</td>
+<td class="data">Computational Algorithm or Method Name</td>
+<td class="r data">char</td>
+<td class="r data">200</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">102</th>
+<td class="data">source_values</td>
+<td class="data">Source Value Metadata</td>
+<td class="r data">24</td>
+<td class="data">algorithmtype</td>
+<td class="data">Type of Algorithm</td>
+<td class="r data">char</td>
+<td class="r data">11</td>
+<td class="data">[Computation, Imputation]</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">103</th>
+<td class="data">source_values</td>
+<td class="data">Source Value Metadata</td>
+<td class="r data">25</td>
+<td class="data">formalexpression</td>
+<td class="data">Formal Expression for Algorithm</td>
+<td class="r data">char</td>
+<td class="r data">1000</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">104</th>
+<td class="data">source_values</td>
+<td class="data">Source Value Metadata</td>
+<td class="r data">26</td>
+<td class="data">formalexpressioncontext</td>
+<td class="data">Context to be used when evaluating the FormalExpression content</td>
+<td class="r data">char</td>
+<td class="r data">1000</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">105</th>
+<td class="data">source_values</td>
+<td class="data">Source Value Metadata</td>
+<td class="r data">27</td>
+<td class="data">comment</td>
+<td class="data">Comment</td>
+<td class="r data">char</td>
+<td class="r data">1000</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">106</th>
+<td class="data">source_values</td>
+<td class="data">Source Value Metadata</td>
+<td class="r data">28</td>
+<td class="data">hasnodata</td>
+<td class="data">Item has no data?</td>
+<td class="r data">char</td>
+<td class="r data">3</td>
+<td class="data">[Yes]</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">107</th>
+<td class="data">source_values</td>
+<td class="data">Source Value Metadata</td>
+<td class="r data">29</td>
+<td class="data">studyversion</td>
+<td class="data">Unique study version identifier</td>
+<td class="r data">char</td>
+<td class="r data">128</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">108</th>
+<td class="data">source_values</td>
+<td class="data">Source Value Metadata</td>
+<td class="r data">30</td>
+<td class="data">standard</td>
+<td class="data">Name of Standard</td>
+<td class="r data">char</td>
+<td class="r data">20</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">109</th>
+<td class="data">source_values</td>
+<td class="data">Source Value Metadata</td>
+<td class="r data">31</td>
+<td class="data">standardversion</td>
+<td class="data">Version of Standard</td>
+<td class="r data">char</td>
+<td class="r data">20</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">110</th>
+<td class="data">source_codelists</td>
+<td class="data">Source Codelist Metadata</td>
+<td class="r data">1</td>
+<td class="data">sasref</td>
+<td class="data">SASreferences sourcedata libref</td>
+<td class="r data">char</td>
+<td class="r data">8</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">111</th>
+<td class="data">source_codelists</td>
+<td class="data">Source Codelist Metadata</td>
+<td class="r data">2</td>
+<td class="data">codelist</td>
+<td class="data">Unique identifier for this CodeList</td>
+<td class="r data">char</td>
+<td class="r data">128</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">112</th>
+<td class="data">source_codelists</td>
+<td class="data">Source Codelist Metadata</td>
+<td class="r data">3</td>
+<td class="data">codelistname</td>
+<td class="data">CodeList Name</td>
+<td class="r data">char</td>
+<td class="r data">128</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">113</th>
+<td class="data">source_codelists</td>
+<td class="data">Source Codelist Metadata</td>
+<td class="r data">4</td>
+<td class="data">codelistdescription</td>
+<td class="data">CodeList Description</td>
+<td class="r data">char</td>
+<td class="r data">2000</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">114</th>
+<td class="data">source_codelists</td>
+<td class="data">Source Codelist Metadata</td>
+<td class="r data">5</td>
+<td class="data">desclanguage</td>
+<td class="data">Language</td>
+<td class="r data">char</td>
+<td class="r data">17</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">115</th>
+<td class="data">source_codelists</td>
+<td class="data">Source Codelist Metadata</td>
+<td class="r data">6</td>
+<td class="data">codelistncicode</td>
+<td class="data">Codelist NCI Code</td>
+<td class="r data">char</td>
+<td class="r data">10</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">116</th>
+<td class="data">source_codelists</td>
+<td class="data">Source Codelist Metadata</td>
+<td class="r data">7</td>
+<td class="data">codelistdatatype</td>
+<td class="data">CodeList item value data type</td>
+<td class="r data">char</td>
+<td class="r data">7</td>
+<td class="data">[text, float, integer]</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">117</th>
+<td class="data">source_codelists</td>
+<td class="data">Source Codelist Metadata</td>
+<td class="r data">8</td>
+<td class="data">sasformatname</td>
+<td class="data">SAS format name</td>
+<td class="r data">char</td>
+<td class="r data">32</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">118</th>
+<td class="data">source_codelists</td>
+<td class="data">Source Codelist Metadata</td>
+<td class="r data">9</td>
+<td class="data">codedvaluechar</td>
+<td class="data">Value of the codelist item (character)</td>
+<td class="r data">char</td>
+<td class="r data">512</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">119</th>
+<td class="data">source_codelists</td>
+<td class="data">Source Codelist Metadata</td>
+<td class="r data">10</td>
+<td class="data">codedvaluenum</td>
+<td class="data">Value of the codelist item (numeric)</td>
+<td class="r data">num</td>
+<td class="r data">8</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">120</th>
+<td class="data">source_codelists</td>
+<td class="data">Source Codelist Metadata</td>
+<td class="r data">11</td>
+<td class="data">codelistitemdescription</td>
+<td class="data">CodeList item description</td>
+<td class="r data">char</td>
+<td class="r data">2000</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">121</th>
+<td class="data">source_codelists</td>
+<td class="data">Source Codelist Metadata</td>
+<td class="r data">12</td>
+<td class="data">decodetext</td>
+<td class="data">Decode value of the codelist item</td>
+<td class="r data">char</td>
+<td class="r data">2000</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">122</th>
+<td class="data">source_codelists</td>
+<td class="data">Source Codelist Metadata</td>
+<td class="r data">13</td>
+<td class="data">decodelanguage</td>
+<td class="data">Decode Language</td>
+<td class="r data">char</td>
+<td class="r data">17</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">123</th>
+<td class="data">source_codelists</td>
+<td class="data">Source Codelist Metadata</td>
+<td class="r data">14</td>
+<td class="data">codedvaluencicode</td>
+<td class="data">Codelist Item NCI Code</td>
+<td class="r data">char</td>
+<td class="r data">10</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">124</th>
+<td class="data">source_codelists</td>
+<td class="data">Source Codelist Metadata</td>
+<td class="r data">15</td>
+<td class="data">rank</td>
+<td class="data">CodedValue order relative to other item values</td>
+<td class="r data">num</td>
+<td class="r data">8</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">125</th>
+<td class="data">source_codelists</td>
+<td class="data">Source Codelist Metadata</td>
+<td class="r data">16</td>
+<td class="data">ordernumber</td>
+<td class="data">Display order of the item within the CodeList.</td>
+<td class="r data">num</td>
+<td class="r data">8</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">126</th>
+<td class="data">source_codelists</td>
+<td class="data">Source Codelist Metadata</td>
+<td class="r data">17</td>
+<td class="data">extendedvalue</td>
+<td class="data">Coded value that has been used to extend external controlled terminology</td>
+<td class="r data">char</td>
+<td class="r data">3</td>
+<td class="data">[Yes]</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">127</th>
+<td class="data">source_codelists</td>
+<td class="data">Source Codelist Metadata</td>
+<td class="r data">18</td>
+<td class="data">dictionary</td>
+<td class="data">Name of the external codelist</td>
+<td class="r data">char</td>
+<td class="r data">200</td>
+<td class="data">NCTt: C66788 - [CDISC CT, COSTART, CTCAE, D-U-N-S NUMBER, ICD, ICD-O, LOINC, MED-RT, MedDRA, SNOMED, UNII, WHO ATC CLASSIFICATION SYSTEM, WHOART, WHODD]</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">128</th>
+<td class="data">source_codelists</td>
+<td class="data">Source Codelist Metadata</td>
+<td class="r data">19</td>
+<td class="data">version</td>
+<td class="data">Version designator of the external codelist</td>
+<td class="r data">char</td>
+<td class="r data">200</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">129</th>
+<td class="data">source_codelists</td>
+<td class="data">Source Codelist Metadata</td>
+<td class="r data">20</td>
+<td class="data">ref</td>
+<td class="data">Reference to a local instance of the dictionary</td>
+<td class="r data">char</td>
+<td class="r data">512</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">130</th>
+<td class="data">source_codelists</td>
+<td class="data">Source Codelist Metadata</td>
+<td class="r data">21</td>
+<td class="data">href</td>
+<td class="data">URL of an external instance of the dictionary</td>
+<td class="r data">char</td>
+<td class="r data">512</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">131</th>
+<td class="data">source_codelists</td>
+<td class="data">Source Codelist Metadata</td>
+<td class="r data">22</td>
+<td class="data">comment</td>
+<td class="data">Comment</td>
+<td class="r data">char</td>
+<td class="r data">1000</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">132</th>
+<td class="data">source_codelists</td>
+<td class="data">Source Codelist Metadata</td>
+<td class="r data">23</td>
+<td class="data">cdiscstandard</td>
+<td class="data">Name of Standard</td>
+<td class="r data">char</td>
+<td class="r data">40</td>
+<td class="data">NCIt: C170452 - [ADaMIG, BIMO, CDISC/NCI, SDTMIG, SDTMIG-AP, SDTMIG-MD, SENDIG, SENDIG-AR, SENDIG-DART]</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">133</th>
+<td class="data">source_codelists</td>
+<td class="data">Source Codelist Metadata</td>
+<td class="r data">24</td>
+<td class="data">cdiscstandardversion</td>
+<td class="data">Version of Standard</td>
+<td class="r data">char</td>
+<td class="r data">20</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">134</th>
+<td class="data">source_codelists</td>
+<td class="data">Source Codelist Metadata</td>
+<td class="r data">25</td>
+<td class="data">publishingset</td>
+<td class="data">Set of published files of Standard when Type=&apos;CT&apos;</td>
+<td class="r data">char</td>
+<td class="r data">20</td>
+<td class="data">NCIt: C172331 - [ADaM, CDASH, DEFINE-XML, SDTM, SEND]</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">135</th>
+<td class="data">source_codelists</td>
+<td class="data">Source Codelist Metadata</td>
+<td class="r data">26</td>
+<td class="data">isnonstandard</td>
+<td class="data">CodeList is non-standard?</td>
+<td class="r data">char</td>
+<td class="r data">3</td>
+<td class="data">[Yes]</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">136</th>
+<td class="data">source_codelists</td>
+<td class="data">Source Codelist Metadata</td>
+<td class="r data">27</td>
+<td class="data">studyversion</td>
+<td class="data">Unique study version identifier</td>
+<td class="r data">char</td>
+<td class="r data">128</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">137</th>
+<td class="data">source_codelists</td>
+<td class="data">Source Codelist Metadata</td>
+<td class="r data">28</td>
+<td class="data">standard</td>
+<td class="data">Name of Standard</td>
+<td class="r data">char</td>
+<td class="r data">20</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">138</th>
+<td class="data">source_codelists</td>
+<td class="data">Source Codelist Metadata</td>
+<td class="r data">29</td>
+<td class="data">standardversion</td>
+<td class="data">Version of Standard</td>
+<td class="r data">char</td>
+<td class="r data">20</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">139</th>
+<td class="data">source_documents</td>
+<td class="data">Source Document Metadata</td>
+<td class="r data">1</td>
+<td class="data">sasref</td>
+<td class="data">SASreferences sourcedata libref</td>
+<td class="r data">char</td>
+<td class="r data">8</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">140</th>
+<td class="data">source_documents</td>
+<td class="data">Source Document Metadata</td>
+<td class="r data">2</td>
+<td class="data">doctype</td>
+<td class="data">Document Type (SUPPDOC, CRF, COMMENT, METHOD, DISPLAY, RESULTDOC, RESULTCODE)</td>
+<td class="r data">char</td>
+<td class="r data">32</td>
+<td class="data">[SUPPDOC, CRF, COMMENT, METHOD, DISPLAY, RESULTDOC, RESULTCODE]</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">141</th>
+<td class="data">source_documents</td>
+<td class="data">Source Document Metadata</td>
+<td class="r data">3</td>
+<td class="data">docsubtype</td>
+<td class="data">Document Sub Type for doctytpe=COMMENT (MDV, TABLE, COLUMN, VCOLUMN, WHERECLAUSE, CODELIST)</td>
+<td class="r data">char</td>
+<td class="r data">32</td>
+<td class="data">[MDV, STANDARD, TABLE, COLUMN, VCOLUMN, WHERECLAUSE, CODELIST]</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">142</th>
+<td class="data">source_documents</td>
+<td class="data">Source Document Metadata</td>
+<td class="r data">4</td>
+<td class="data">href</td>
+<td class="data">The pathname and filename of the target document relative to the define.xml</td>
+<td class="r data">char</td>
+<td class="r data">512</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">143</th>
+<td class="data">source_documents</td>
+<td class="data">Source Document Metadata</td>
+<td class="r data">5</td>
+<td class="data">title</td>
+<td class="data">Meaningful description, label, or location of the document leaf</td>
+<td class="r data">char</td>
+<td class="r data">2000</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">144</th>
+<td class="data">source_documents</td>
+<td class="data">Source Document Metadata</td>
+<td class="r data">6</td>
+<td class="data">pdfpagereftype</td>
+<td class="data">Type of Page Reference (PhysicalRef/NamedDestination)</td>
+<td class="r data">char</td>
+<td class="r data">32</td>
+<td class="data">[PhysicalRef, NamedDestination]</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">145</th>
+<td class="data">source_documents</td>
+<td class="data">Source Document Metadata</td>
+<td class="r data">7</td>
+<td class="data">pdfpagerefs</td>
+<td class="data">Page Reference</td>
+<td class="r data">char</td>
+<td class="r data">200</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">146</th>
+<td class="data">source_documents</td>
+<td class="data">Source Document Metadata</td>
+<td class="r data">8</td>
+<td class="data">pdfpagereftitle</td>
+<td class="data">Meaningful description of the specific document reference</td>
+<td class="r data">char</td>
+<td class="r data">2000</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">147</th>
+<td class="data">source_documents</td>
+<td class="data">Source Document Metadata</td>
+<td class="r data">9</td>
+<td class="data">table</td>
+<td class="data">Table Name</td>
+<td class="r data">char</td>
+<td class="r data">32</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">148</th>
+<td class="data">source_documents</td>
+<td class="data">Source Document Metadata</td>
+<td class="r data">10</td>
+<td class="data">column</td>
+<td class="data">Column Name</td>
+<td class="r data">char</td>
+<td class="r data">32</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">149</th>
+<td class="data">source_documents</td>
+<td class="data">Source Document Metadata</td>
+<td class="r data">11</td>
+<td class="data">whereclause</td>
+<td class="data">Where Clause</td>
+<td class="r data">char</td>
+<td class="r data">1000</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">150</th>
+<td class="data">source_documents</td>
+<td class="data">Source Document Metadata</td>
+<td class="r data">12</td>
+<td class="data">codelist</td>
+<td class="data">Unique identifier for the CodeList</td>
+<td class="r data">char</td>
+<td class="r data">128</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">151</th>
+<td class="data">source_documents</td>
+<td class="data">Source Document Metadata</td>
+<td class="r data">13</td>
+<td class="data">displayidentifier</td>
+<td class="data">Analysis Display Identifier</td>
+<td class="r data">char</td>
+<td class="r data">128</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">152</th>
+<td class="data">source_documents</td>
+<td class="data">Source Document Metadata</td>
+<td class="r data">14</td>
+<td class="data">resultidentifier</td>
+<td class="data">Analysis Display Result Identifier</td>
+<td class="r data">char</td>
+<td class="r data">128</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">153</th>
+<td class="data">source_documents</td>
+<td class="data">Source Document Metadata</td>
+<td class="r data">15</td>
+<td class="data">cdiscstandard</td>
+<td class="data">Name of Standard</td>
+<td class="r data">char</td>
+<td class="r data">40</td>
+<td class="data">NCIt: C170452 - [ADaMIG, BIMO, CDISC/NCI, SDTMIG, SDTMIG-AP, SDTMIG-MD, SENDIG, SENDIG-AR, SENDIG-DART]</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">154</th>
+<td class="data">source_documents</td>
+<td class="data">Source Document Metadata</td>
+<td class="r data">16</td>
+<td class="data">cdiscstandardversion</td>
+<td class="data">Version of Standard</td>
+<td class="r data">char</td>
+<td class="r data">20</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">155</th>
+<td class="data">source_documents</td>
+<td class="data">Source Document Metadata</td>
+<td class="r data">17</td>
+<td class="data">publishingset</td>
+<td class="data">Set of published files of Standard when Type=&apos;CT&apos;</td>
+<td class="r data">char</td>
+<td class="r data">20</td>
+<td class="data">NCIt: C172331 - [ADaM, CDASH, DEFINE-XML, SDTM, SEND]</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">156</th>
+<td class="data">source_documents</td>
+<td class="data">Source Document Metadata</td>
+<td class="r data">18</td>
+<td class="data">studyversion</td>
+<td class="data">Unique study version identifier</td>
+<td class="r data">char</td>
+<td class="r data">128</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">157</th>
+<td class="data">source_documents</td>
+<td class="data">Source Document Metadata</td>
+<td class="r data">19</td>
+<td class="data">standard</td>
+<td class="data">Name of Standard</td>
+<td class="r data">char</td>
+<td class="r data">20</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">158</th>
+<td class="data">source_documents</td>
+<td class="data">Source Document Metadata</td>
+<td class="r data">20</td>
+<td class="data">standardversion</td>
+<td class="data">Version of Standard</td>
+<td class="r data">char</td>
+<td class="r data">20</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">159</th>
+<td class="data">source_analysisresults</td>
+<td class="data">Source Analysis Results Metadata</td>
+<td class="r data">1</td>
+<td class="data">sasref</td>
+<td class="data">SASreferences sourcedata libref</td>
+<td class="r data">char</td>
+<td class="r data">8</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">160</th>
+<td class="data">source_analysisresults</td>
+<td class="data">Source Analysis Results Metadata</td>
+<td class="r data">2</td>
+<td class="data">displayidentifier</td>
+<td class="data">Unique identifier for analysis display</td>
+<td class="r data">char</td>
+<td class="r data">128</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">161</th>
+<td class="data">source_analysisresults</td>
+<td class="data">Source Analysis Results Metadata</td>
+<td class="r data">3</td>
+<td class="data">displayname</td>
+<td class="data">Title of display</td>
+<td class="r data">char</td>
+<td class="r data">2000</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">162</th>
+<td class="data">source_analysisresults</td>
+<td class="data">Source Analysis Results Metadata</td>
+<td class="r data">4</td>
+<td class="data">displaydescription</td>
+<td class="data">Description of display</td>
+<td class="r data">char</td>
+<td class="r data">2000</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">163</th>
+<td class="data">source_analysisresults</td>
+<td class="data">Source Analysis Results Metadata</td>
+<td class="r data">5</td>
+<td class="data">resultidentifier</td>
+<td class="data">Specific analysis result within display</td>
+<td class="r data">char</td>
+<td class="r data">128</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">164</th>
+<td class="data">source_analysisresults</td>
+<td class="data">Source Analysis Results Metadata</td>
+<td class="r data">6</td>
+<td class="data">resultdescription</td>
+<td class="data">Description of analysis result within display</td>
+<td class="r data">char</td>
+<td class="r data">2000</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">165</th>
+<td class="data">source_analysisresults</td>
+<td class="data">Source Analysis Results Metadata</td>
+<td class="r data">7</td>
+<td class="data">parametercolumn</td>
+<td class="data">Name of the column that holds the parameter</td>
+<td class="r data">char</td>
+<td class="r data">8</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">166</th>
+<td class="data">source_analysisresults</td>
+<td class="data">Source Analysis Results Metadata</td>
+<td class="r data">8</td>
+<td class="data">analysisreason</td>
+<td class="data">Reason for analysis</td>
+<td class="r data">char</td>
+<td class="r data">2000</td>
+<td class="data">NCIt: C117744 - [EXPLORATORY OUTCOME MEASURE, PRIMARY OUTCOME MEASURE, SECONDARY OUTCOME MEASURE] - Extensible</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">167</th>
+<td class="data">source_analysisresults</td>
+<td class="data">Source Analysis Results Metadata</td>
+<td class="r data">9</td>
+<td class="data">analysispurpose</td>
+<td class="data">Purpose of analysis</td>
+<td class="r data">char</td>
+<td class="r data">2000</td>
+<td class="data">NCIt: C117745 - [DATA DRIVEN, REQUESTED BY REGULATORY AGENCY, SPECIFIED IN PROTOCOL, SPECIFIED IN SAP] - Extensible</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">168</th>
+<td class="data">source_analysisresults</td>
+<td class="data">Source Analysis Results Metadata</td>
+<td class="r data">10</td>
+<td class="data">tablejoincomment</td>
+<td class="data">Comment describing how to join tables</td>
+<td class="r data">char</td>
+<td class="r data">2000</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">169</th>
+<td class="data">source_analysisresults</td>
+<td class="data">Source Analysis Results Metadata</td>
+<td class="r data">11</td>
+<td class="data">resultdocumentation</td>
+<td class="data">Documentation of analysis result within display</td>
+<td class="r data">char</td>
+<td class="r data">2000</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">170</th>
+<td class="data">source_analysisresults</td>
+<td class="data">Source Analysis Results Metadata</td>
+<td class="r data">12</td>
+<td class="data">codecontext</td>
+<td class="data">Name and version of computer language</td>
+<td class="r data">char</td>
+<td class="r data">128</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">171</th>
+<td class="data">source_analysisresults</td>
+<td class="data">Source Analysis Results Metadata</td>
+<td class="r data">13</td>
+<td class="data">code</td>
+<td class="data">Programming statements</td>
+<td class="r data">char</td>
+<td class="r data">2000</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">172</th>
+<td class="data">source_analysisresults</td>
+<td class="data">Source Analysis Results Metadata</td>
+<td class="r data">14</td>
+<td class="data">table</td>
+<td class="data">Table Name</td>
+<td class="r data">char</td>
+<td class="r data">32</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">173</th>
+<td class="data">source_analysisresults</td>
+<td class="data">Source Analysis Results Metadata</td>
+<td class="r data">15</td>
+<td class="data">analysisvariables</td>
+<td class="data">Analysis Variable List</td>
+<td class="r data">char</td>
+<td class="r data">1024</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">174</th>
+<td class="data">source_analysisresults</td>
+<td class="data">Source Analysis Results Metadata</td>
+<td class="r data">16</td>
+<td class="data">whereclause</td>
+<td class="data">Where Clause</td>
+<td class="r data">char</td>
+<td class="r data">1000</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">175</th>
+<td class="data">source_analysisresults</td>
+<td class="data">Source Analysis Results Metadata</td>
+<td class="r data">17</td>
+<td class="data">studyversion</td>
+<td class="data">Unique Study Version Identifier</td>
+<td class="r data">char</td>
+<td class="r data">128</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">176</th>
+<td class="data">source_analysisresults</td>
+<td class="data">Source Analysis Results Metadata</td>
+<td class="r data">18</td>
+<td class="data">standard</td>
+<td class="data">Name of Standard</td>
+<td class="r data">char</td>
+<td class="r data">20</td>
+<td class="data"> &#160;</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">177</th>
+<td class="data">source_analysisresults</td>
+<td class="data">Source Analysis Results Metadata</td>
+<td class="r data">19</td>
+<td class="data">standardversion</td>
+<td class="data">Version of Standard</td>
+<td class="r data">char</td>
+<td class="r data">20</td>
+<td class="data"> &#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,470 @@
+<?xml version="1.0"?>
+<project basedir="." name="standard_module">
+    <property file="${user.home}/cstbuild.properties"/>
+    <property file="../../build.properties" />
+    <property file="module.properties" />
+
+    <taskdef resource="net/sf/antcontrib/antlib.xml">
+        <classpath>
+            <pathelement location="../../ant-contrib-1.0b3.jar"/>
+        </classpath>
+    </taskdef>
+	
+	<if>
+		<isset property="standard.version"/>
+		<then>
+			<property name="local.standard.version_" value="${standard.version}"/>
+			<loadresource property="local.standard.version">
+	  			<propertyresource name="local.standard.version_" />
+	  			<filterchain>
+	    			<tokenfilter>
+	      				<replaceregex pattern="\." replace="" flags="g"/>
+	    			</tokenfilter>
+	  			</filterchain>
+			</loadresource>
+		</then>
+	</if>
+	
+    <target name="init">
+        <tstamp>
+            <format pattern="yyyyMMdd.HHmmss" property="build.time" />
+        </tstamp>
+
+        <available file="${standards.deploy.path}/${build.dir.standards}/${deploy.standard.name}-${deploy.module.version}" type="dir" property="flag.cstStandardExists" />
+        <available file="${samples.deploy.path}/${deploy.standard.name}-${deploy.module.version}" type="dir" property="flag.cstSampleExists" />
+        <available file="./source/sample" type="dir" property="flag.hasSampleFiles" />
+    	<available file="./source/xsl-repository" type="dir" property="flag.hasXslFiles" />
+    	<available file="./source/schema-repository" type="dir" property="flag.hasSchemaFiles" />
+        <available file="${standards.deploy.path}/metadata/standards.sas7bdat" type="file" property="flag.cstMetadataExists" />
+
+    	<if>
+    	<isset property="local.standard.version"/>
+    		<then>
+    			<property name="local.dist.dir.module" value="cst${standard.type}${local.standard.version}"/>
+    		</then>
+    		<else>
+       			<property name="local.dist.dir.module" value="cst${standard.type}"/>
+        	</else>
+    	</if>
+
+    </target>
+
+	<target name="info" description="Display descriptive properties for standard module source" depends="init">
+        <echo message="Standard Module Deployment Properties" />
+        <echo message=" Standard source = ${standard.source}" />
+        <echo message=" Standard type = ${standard.type}" />
+		<if>
+			<isset property="standard.version"/>
+			<then>
+        		<echo message=" Standard version = ${standard.version}" />
+			</then>
+		</if>
+        <echo message="" />
+		<echo message=" Required source distribution root folder name = ${local.dist.dir.module}"/>
+        <echo message="" />
+	    <if>
+	    	<isset property="flag.hasSampleFiles"/>
+	    	<then>
+	    		<echo message=" Contains sample = true"/>
+	    	</then>
+		<else>
+    		<echo message=" Contains sample = false"/>
+	   	</else>
+	    </if>
+		<echo message=" Is XML standard = ${standard.is.xml}"/>
+	    <if>
+	    	<or>
+	    		<isset property="flag.hasXslFiles"/>
+		    	<isset property="flag.hasSchemaFiles"/>
+	    	</or>
+	    	<then>
+	    	    <if>
+	    	    	<isset property="flag.hasXslFiles"/>
+	    	    	<then>
+	    	    		<echo message=" Contains xsl = true"/>
+	    	    	</then>
+	    		<else>
+	        		<echo message=" Contains xsl = false"/>
+	    	   	</else>
+	    	    </if>
+	    	    <if>
+	    	    	<isset property="flag.hasSchemaFiles"/>
+	    	    	<then>
+	    	    		<echo message=" Contains schema = true"/>
+	    	    	</then>
+	    		<else>
+	        		<echo message=" Contains schema = false"/>
+	    	   	</else>
+	    	    </if>
+	    	</then>
+	  	</if>
+		<echo message=""/>
+        <echo message="Build property files used:" />
+		<dirname property="local.root.file" file=".." />
+		<echo message=" ${local.root.file}/build.properties" />
+        <echo message=" ${basedir}/project.properties" />
+		<echo message=" ${basedir}/module.properties" />
+		<if>
+			<available file="${user.home}/cstbuild.properties"/>
+			<then>
+	        	<echo message=" ${user.home}/cstbuild.properties" />
+			</then>
+		</if>        
+        <echo message="" />
+        <echo message="Deployment Directories:" />
+        <echo message=" ${standards.deploy.path}/${build.dir.standards}/${deploy.standard.name}-${deploy.module.version}" />
+	    <if>
+	    	<isset property="flag.hasSampleFiles"/>
+	    	<then>
+	            <echo message=" ${samples.deploy.path}/${deploy.standard.name}-${deploy.module.version}" />
+	    	</then>
+	    </if>
+	    <if>
+	    	<isset property="flag.hasSchemaFiles"/>
+	    	<then>
+	            <echo message=" ${standards.deploy.path}/${build.dir.schemarepos}" />
+	    	</then>
+	    </if>
+	    <if>
+			<isset property="flag.hasXslFiles"/>
+	    	<then>
+	            <echo message=" ${standards.deploy.path}/${build.dir.xslrepos}" />
+	    	</then>
+	    </if>
+        <echo message="" />
+	<echo message="SAS Configuration:" />
+	<echo message=" SASHome: ${sas.fulldirpath.sasrootdir.default}"/>
+	<echo message=" Executable: ${sas.dirpath.sasFoundation.94}/sas"/>
+
+	</target>
+	
+    <target name="clean-dist">
+        <delete dir="../../${build.dir.dist}/${build.dir.standards}/${local.dist.dir.module}" failonerror="false"/>
+    </target>
+
+    <target name="clean-deploy-standard">
+        <delete dir="${standards.deploy.path}/${build.dir.standards}/${deploy.standard.name}-${deploy.module.version}" failonerror="false"/>
+    </target>
+
+    <target name="clean-deploy-sample">
+        <delete dir="${samples.deploy.path}/${deploy.standard.name}-${deploy.module.version}" failonerror="false"/>
+    </target>
+
+    <target name="clean-sample-results">
+    	<if>
+    		<available file="./source/sample/results" type="dir"/>
+    		<then>
+        		<delete dir="./source/sample/results" failonerror="false" excludes="readme.txt"/>
+   			</then>
+    	</if>
+       	<if>
+        	<available file="./source/sample/sascstdemodata/results" type="dir"/>
+        	<then>
+            	<delete dir="./source/sample/sascstdemodata/results" failonerror="false" excludes="readme.txt"/>
+       		</then>
+        </if>
+    </target>
+
+        	<target name="dist" description="build distribution" depends="init, clean-dist">
+        <antcall target="dist-standard"/>
+    	<if>
+    		<equals arg1="${standard.is.xml}" arg2="true" />
+    		<then>
+        		<antcall target="dist-xml"/>
+    		</then>
+    	</if>
+    </target>
+
+    <target name="dist-standard" depends="init, clean-dist">
+        <!-- copy to dist -->
+    	<if>
+			<equals arg1="${flag.hasSampleFiles}" arg2="true" />
+ 			<then>
+        		<mkdir dir="../../${build.dir.dist}/${build.dir.standards}/${local.dist.dir.module}/sample" />
+        		<copy toDir="../../${build.dir.dist}/${build.dir.standards}/${local.dist.dir.module}/sample">
+            		<fileset dir="./source/sample"/>
+        		</copy>
+ 			</then>
+    	</if>
+        <mkdir dir="../../${build.dir.dist}/${build.dir.standards}/${local.dist.dir.module}/global" />
+        <copy toDir="../../${build.dir.dist}/${build.dir.standards}/${local.dist.dir.module}/global">
+            <fileset dir="./source/standards"/>
+        </copy>
+    	<!-- search for the cport files and write the cimport program -->
+		<foreach target="write-cimport" param="portFile" inheritall='true'>
+			<path>
+				<fileset dir="../../${build.dir.dist}/${build.dir.standards}/${local.dist.dir.module}">
+					<include name="**/cported.xpt" />
+				</fileset>
+			</path>
+		</foreach>
+        <!-- unpack transport files --> 
+        <path id="ref.this.fullfilepath.cimport.program">
+            <fileset dir="../../${build.dir.dist}/${build.dir.standards}/${local.dist.dir.module}/global">
+                <include name="programs/cimport.sas" />
+            </fileset>
+        </path>
+        <property name="this.fullfilepath.cimport.program" value="${toString:ref.this.fullfilepath.cimport.program}" />
+        <dirname property="this.fulldirpath.programs" file="${this.fullfilepath.cimport.program}" />
+        <dirname property="this.fulldirpath.standardName" file="${this.fulldirpath.programs}" />
+        <dirname property="this.fulldirpath.standards" file="${this.fulldirpath.standardName}" />
+        <pathconvert targetos='unix' property="this.dir.standardName">
+            <path>
+                <pathelement location="${this.fulldirpath.standardName}" />
+            </path>
+            <map from="${this.fulldirpath.standards}/" to="" />
+        </pathconvert>        
+        <exec dir='${this.fulldirpath.programs}' executable="${sas.fulldirpath.executable}/sas" resultproperty="cport.state">
+            <arg line='-SYSIN cimport.sas' />
+        </exec>   
+    	<echo/>
+        <echo message="Processing import queue:" />
+
+        <echo message="cimport.sas result code for ${local.dist.dir.module}: ${cport.state}" />
+    	<delete file="${this.fulldirpath.programs}/cimport.sas"/>
+    	
+    	<!-- delete the transport files from dist -->
+    	<delete>
+			<fileset dir="../../${build.dir.dist}/${build.dir.standards}/${local.dist.dir.module}">
+				<include name="**/cported.xpt" />
+			</fileset>
+    	</delete>
+    </target>
+
+    <target name="dist-xml" depends="init">
+    	<if>
+			<equals arg1="${flag.hasSchemaFiles}" arg2="true" />
+    		<then>
+            	<!-- copy schema -->
+	        	<mkdir dir="../../${build.dir.dist}/${build.dir.standards}/${local.dist.dir.module}/${build.dir.schemarepos}" />
+    	    	<copy toDir="../../${build.dir.dist}/${build.dir.standards}/${local.dist.dir.module}/${build.dir.schemarepos}">
+        	    	<fileset dir="./source/schema-repository"/>
+        		</copy>
+    		</then>
+    	</if>
+    	<if>
+			<equals arg1="${flag.hasXslFiles}" arg2="true" />   
+    		<then>
+     	  	 <!-- copy xsl -->
+        		<mkdir dir="../../${build.dir.dist}/${build.dir.standards}/${local.dist.dir.module}/${build.dir.xslrepos}" />
+        		<copy toDir="../../${build.dir.dist}/${build.dir.standards}/${local.dist.dir.module}/${build.dir.xslrepos}">
+            		<fileset dir="./source/xsl-repository"/>
+        		</copy>
+    		</then>
+    	</if>
+    </target>
+
+    <target name="sas-options-config">
+    	<!-- needed to temporarily activate CST macros so that standards can be registered -->
+        <property name="sas.exe.options" value="-SET CSTHOME &quot;${framework.deploy.path}&quot; -CSTGLOBALLIB &quot;${standards.deploy.path}&quot; -CSTSAMPLELIB &quot;${samples.deploy.path}&quot; -insert sasautos &quot;!CSTHOME/${build.dir.macros}/&quot;" />
+    </target>
+
+    <target name="deploy" description="deploys the framework to the global standards library" depends="init, sas-options-config">
+        <if>
+            <and>
+                <equals arg1="${flag.cstStandardExists}" arg2="true"/>
+                <equals arg1="${deploy.overwrite.standards}" arg2="false"/>
+            </and>
+            <then>
+                <antcall target="backupStandardInGlobalFolder"/>
+                <antcall target="clean-deploy-standard"/>
+            </then>
+        </if>
+
+        <if>
+            <and>
+                <equals arg1="${flag.cstSampleExists}" arg2="true"/>
+                <equals arg1="${deploy.overwrite.samples}" arg2="false"/>
+            </and>
+            <then>
+                <antcall target="backupStandardInSampleFolder"/>
+                <antcall target="clean-deploy-sample"/>
+            </then>
+        </if>
+
+        <antcall target="copyStandardToGlobalLibrary"/>
+    	<if>
+			<equals arg1="${flag.hasSampleFiles}" arg2="true" />
+    		<then>
+				<antcall target="copyStandardToSampleLibrary"/>
+    		</then>
+    	</if>
+    	<if>
+			<equals arg1="${flag.hasXslFiles}" arg2="true" />
+    		<then>
+        		<antcall target="copyXslDependenciestoGlobalLibrary"/>
+    		</then>
+		</if>
+       	<if>
+    		<equals arg1="${flag.hasSchemaFiles}" arg2="true" />
+        	<then>
+            	<antcall target="copySchemaDependenciestoGlobalLibrary"/>
+        	</then>
+    	</if>
+        <path id="ref.this.fullfilepath.registerstandard.program">
+            <fileset dir="${standards.deploy.path}/${build.dir.standards}/${deploy.standard.name}-${deploy.module.version}">
+                <include name="programs/registerstandard.sas" />
+            </fileset>
+        </path>
+        <property name="this.fullfilepath.registerstandard.program" value="${toString:ref.this.fullfilepath.registerstandard.program}" />
+        <dirname property="this.fulldirpath.deploy.programs" file="${this.fullfilepath.registerstandard.program}" />
+        <exec dir='${this.fulldirpath.deploy.programs}' executable="${sas.fulldirpath.executable}/sas" resultproperty="register.state">
+            <arg line="${sas.exe.options} -SYSIN registerstandard.sas"/>
+        </exec>
+        <echo message="registerstandard.sas result code for ${local.dist.dir.module}: ${register.state}" />
+    </target>
+
+    <target name="copyStandardToGlobalLibrary">
+        <echo>Copying the standard to the CST Global Library</echo>
+        <copy todir="${standards.deploy.path}/${build.dir.standards}/${deploy.standard.name}-${deploy.module.version}" overwrite="true">
+            <fileset dir="../../${build.dir.dist}/${build.dir.standards}/${local.dist.dir.module}/global"/>
+        </copy>
+    </target>
+
+    <target name="copyStandardToSampleLibrary">
+        <echo>Copying the standard to the CST Sample Library</echo>
+        <copy todir="${samples.deploy.path}/${deploy.standard.name}-${deploy.module.version}" overwrite="true">
+            <fileset dir="../../${build.dir.dist}/${build.dir.standards}/${local.dist.dir.module}/sample"/>
+        </copy>
+    </target>
+
+    <target name="copyXslDependenciestoGlobalLibrary">
+        <echo>Copying the standard xsl dependencies to the CST Global Library</echo>
+        <copy todir="${standards.deploy.path}/${build.dir.xslrepos}">
+            <fileset dir="../../${build.dir.dist}/${build.dir.standards}/${local.dist.dir.module}/${build.dir.xslrepos}"/>
+        </copy>
+    </target>
+    
+    <target name="copySchemaDependenciestoGlobalLibrary">
+        <echo>Copying the standard schema dependencies to the CST Global Library</echo>
+        <copy todir="${standards.deploy.path}/${build.dir.schemarepos}">
+            <fileset dir="../../${build.dir.dist}/${build.dir.standards}/${local.dist.dir.module}/${build.dir.schemarepos}"/>
+        </copy>
+    </target>
+
+    <target name="backupStandardInGlobalFolder">
+        <echo>Backing up ${deploy.standard.name}-${deploy.module.version} Standard folder</echo>
+        <copy todir="${standards.deploy.path}/${build.dir.standards}/${deploy.standard.name}-${deploy.module.version}-copy-${build.time}">
+            <fileset dir="${standards.deploy.path}/${build.dir.standards}/${deploy.standard.name}-${deploy.module.version}"/>
+        </copy>
+    </target>
+
+    <target name="backupStandardInSampleFolder">
+        <echo>Backing up ${deploy.standard.name}-${deploy.module.version} Sample folder</echo>
+        <copy todir="${samples.deploy.path}/${deploy.standard.name}-${deploy.module.version}-copy-${build.time}">
+            <fileset dir="${samples.deploy.path}/${deploy.standard.name}-${deploy.module.version}"/>
+        </copy>
+    </target>
+	
+	<target name="write-cimport">
+		
+		<echo>Adding ${portFile} to import processing queue</echo>
+		<dirname file="../../build.xml" 
+		  property="git.basedir"/> 
+
+		<pathconvert targetos='unix' property="temp.basedir.path">
+			<path>
+				<pathelement path='${git.basedir}' />
+			</path>
+			</pathconvert>
+		
+		<pathconvert targetos='unix' property="temp.filepath.cport.file">
+			<path>
+				<pathelement path='${portFile}' />
+			</path>
+			<map from="${temp.basedir.path}/${build.dir.dist}/${build.dir.standards}" to="../../.." />
+		</pathconvert>
+		
+		<dirname property='temp.fulldirpath.cport.file' file='${portFile}' />
+		<pathconvert targetos='unix' property="temp.dirpath.cport.file">
+			<path>
+				<pathelement path='${temp.fulldirpath.cport.file}' />
+			</path>
+			<map from="${temp.basedir.path}/${build.dir.dist}/${build.dir.standards}" to="../../.." />
+		</pathconvert>
+
+		<echo file="${git.basedir}/${build.dir.dist}/${build.dir.standards}/${local.dist.dir.module}/global/programs/cimport.sas" append="true">
+
+/*
+ * CIMPORTING ${temp.fulldirpath.cport.file}
+ */
+libname  lib1 "${temp.dirpath.cport.file}";
+filename xptFile "${temp.filepath.cport.file}";
+proc cimport lib=lib1
+file=xptFile;
+run;
+libname lib1;
+filename xptFile;
+    </echo> 
+
+	</target>
+
+	<target name="create-cport-files" description="create transport files to contribute dataset and/or catalog updates" depends="init, clean-sample-results">
+		<delete file="${user.home}/cport.sas" failonerror="false" />
+
+		<!-- flag folders containing SAS data files for later cporting -->
+		<foreach target="flag-folders-for-cport" param="param1" inheritall='true'>
+		<path>
+			<fileset dir="./source">
+				<include name="**/*.sas7bdat" />
+				<include name="**/*.sas7bcat" />
+			</fileset>
+		</path>
+		</foreach>
+		<!-- write the cport program in the user home folder to process the found data files -->
+		<foreach target="write-cport-file" param="param1" inheritall='true'>
+		<path>
+			<fileset dir="./source">
+				<include name="**/cportMe.txt" />
+			</fileset>
+		</path>
+	</foreach>
+
+		<if>
+			<available file="${user.home}/cport.sas"/>
+			<then>
+				<echo>Execute the SAS program just created</echo>
+				<exec dir='${user.home}' executable="${sas.fulldirpath.executable}/sas" resultproperty="cport.state">
+					<arg line='-SYSIN cport.sas' />
+				</exec>
+				<echo>CPORT processing SAS result code: ${cport.state}</echo>
+
+				<echo>Delete the sas data sets and catalogs just ported, plus any flag files</echo>
+				<delete>
+					<fileset dir="./source">
+						<include name="**/*.sas7bdat" />
+						<include name="**/*.sas7bcat" />
+						<include name="**/cportMe.txt" />
+					</fileset>
+				</delete>
+				</then>
+			<else>
+				<echo>No SAS data files found for porting</echo>
+			</else>
+		</if>
+	</target>
+
+	<target name="flag-folders-for-cport">
+		<dirname property='temp.dirpath.cport.file' file='${param1}' />
+		<echo file="${temp.dirpath.cport.file}/cportMe.txt" append="false">
+This will be used to pick up directories that need to be cported.
+    </echo>
+	</target>
+
+	<target name="write-cport-file">
+		<dirname property='temp.dirpath.cport.file' file='${param1}' />
+		<echo file="${user.home}/cport.sas" append="true">
+/*
+ * CPORTING ${temp.dirpath.cport.file}
+ */
+libname  lib1 "${temp.dirpath.cport.file}";
+filename xptFile "${temp.dirpath.cport.file}/cported.xpt";
+proc cport lib=lib1
+file=xptFile;
+run;
+libname lib1;
+filename xptFile;
+    </echo>
+	</target>
+
+</project>
