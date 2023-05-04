@@ -58,7 +58,11 @@ run;
       _cstStdDSName=standards,
       _cstStdSASRefsDSName=standardsasreferences,
       _cstStdLookupDSName=standardlookup);
-  %end;
+        
+      /* set this version as the default */
+      %cst_setStandardVersionDefault(_cstStandard=CDISC-DEFINE-XML,_cstStandardVersion=2.1);
+
+%end;
   %else %do;
     %put ****;
     %put NOTE: Skipping registration of &_thisStandard &_thisStandardVersion V&_thisProductRevision to the global library;

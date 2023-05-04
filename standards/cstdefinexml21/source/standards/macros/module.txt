@@ -1,4 +1,4 @@
-This is the CDISC-Define-XML 2.0.0 runtime macro library.
+This is the CDISC-Define-XML 2.1 runtime macro library.
 
 @name Define-XML V2.1 (Runtime)
 @since V1.7

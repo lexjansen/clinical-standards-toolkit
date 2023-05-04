@@ -8,7 +8,7 @@ The example Define-XML documents in the **sourcexml** folder that are used to im
   source: <https://www.cdisc.org/standards/foundational/sdtm/sdtm-metadata-submission-guidelines-v2-0>
 
 - **define_msg_adam.xml**: ADaM Metadata Submission Guidelines v1.0, 18 April 18 2023
-  source: <https://wiki.cdisc.org/display/ADAMMSG/ADaM+MSG+examples>
+  source: <https://www.cdisc.org/standards/foundational/adam/adam-metadata-submission-guidelines-v1-0>
 
 - **define_sdtm_full_example.xml**: adapted from **define_msg_sdtm.xml** to add more metadata in order to fully demonstrate Define-XML 2.1 capabilities:
   - Add a description to a ValueList definition
