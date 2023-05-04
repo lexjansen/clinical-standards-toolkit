@@ -143,19 +143,16 @@ Do you need help adding a new standard?  Open an issue in GitHub!
 
 ## License
 
-This project is licensed under the [Apache 2.0 License](LICENSE).
-
-ant-contrib-1.0b3.jar is licensed under the [Apache 1.1 License](ANT-CONTRIB-LICENSE).
-xercesImpl.jar is licensed under the [Apache 2.0 License](LICENSE).
-xml-apis.jar is licensed under the [Apache 2.0 License](LICENSE).
-define2-1.xsl is licensed under the [MIT License](define2-1.xsl.LICENSE).
+This project is licensed under the [Apache 2.0 License](LICENSE).  
+ant-contrib-1.0b3.jar is licensed under the [Apache 1.1 License](ANT-CONTRIB-LICENSE).  
+xercesImpl.jar is licensed under the [Apache 2.0 License](LICENSE).  
+xml-apis.jar is licensed under the [Apache 2.0 License](LICENSE).  
+define2-1.xsl is licensed under the [MIT License](define2-1.xsl.LICENSE).  
 
 ## Additional Resources
 
 Legacy Documentation is still applicable for the most part.  The most notable exception is the location of the autocall macros as described in the Getting Started section.
 
-[Operational Qualification Guide](https://support.sas.com/documentation/cdl/en/clinstdtktiq/69402/PDF/default/clinstdtktiq.pdf)
-
-[Getting Started Guide](https://support.sas.com/documentation/cdl/en/clinstdtktgs/69403/PDF/default/clinstdtktgs.pdf)
-
+[Operational Qualification Guide](https://support.sas.com/documentation/cdl/en/clinstdtktiq/69402/PDF/default/clinstdtktiq.pdf)  
+[Getting Started Guide](https://support.sas.com/documentation/cdl/en/clinstdtktgs/69403/PDF/default/clinstdtktgs.pdf)  
 [User's Guilde](https://support.sas.com/documentation/cdl/en/clinstdtktug/69404/PDF/default/clinstdtktug.pdf)
