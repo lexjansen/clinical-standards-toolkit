@@ -371,14 +371,20 @@
       create table armr_&_cstRandom
       as select
         unique armr.ResultIdentifier as OID,
-        case when not missing(armr.ParameterColumn)
-          then "IT."||kstrip(armr.Table)||"."||kstrip(armr.ParameterColumn)
-          else ""
-        end as ParameterOID,
+        armr_p.ParameterOID,
         armr.AnalysisReason,
         armr.AnalysisPurpose,
         armr.DisplayIdentifier as FK_AnalysisResultDisplays
-      from _cstSourceAnalysisResults_&_cstRandom armr
+      from 
+        _cstSourceAnalysisResults_&_cstRandom armr
+        left join (
+          select 
+            unique armr.ResultIdentifier,        
+            "IT."||kstrip(armr.Table)||"."||kstrip(armr.ParameterColumn) as ParameterOID
+          from _cstSourceAnalysisResults_&_cstRandom armr
+          where not missing(armr.ParameterColumn)
+          ) armr_p
+        on armr.ResultIdentifier = armr_p.ResultIdentifier
       order by OID
       ;
       %* TranslatedText (DisplayResults);
@@ -448,6 +454,7 @@
         unique armdoc.UUIDdoc as OID,
         armdoc.ResultIdentifier as FK_AnalysisResults
       from _cstSourceAnalysisResults_&_cstRandom armdoc
+      where not missing(armdoc.ResultDocumentation)
       ;
       %* TranslatedText (AnalysisDocumentation);
       create table doc_tt_&_cstRandom
@@ -457,6 +464,7 @@
         "AnalysisDocumentation" as parent,
         doc_tt.UUIDdoc as parentKey length=&_cstOIDLength
       from _cstSourceAnalysisResults_&_cstRandom doc_tt
+      where not missing(doc_tt.ResultDocumentation)
       ;
        %* analysisprogrammingcode;
       create table armcode_&_cstRandom

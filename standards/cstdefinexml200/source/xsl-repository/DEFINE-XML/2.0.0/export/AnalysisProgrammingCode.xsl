@@ -12,36 +12,40 @@
 	
 	  <xsl:param name="parentKey" />
        
-    <xsl:for-each select="../AnalysisProgrammingCode[FK_AnalysisResults = $parentKey]">      
+    <xsl:for-each select="../AnalysisProgrammingCode[FK_AnalysisResults = $parentKey]">
+      <xsl:variable name="ProgrammingOID"><xsl:value-of select="OID"/></xsl:variable>
+      <xsl:variable name="hasCode" select="string-length(normalize-space(../AnalysisProgrammingCode[FK_AnalysisResults = $parentKey]/Code)) &gt; 0"/>
+      <xsl:variable name="hasDocumentRefs" select="count(../DocumentRefs[parent = 'AnalysisProgrammingCode' and parentKey = $ProgrammingOID]) &gt; 0"/>
+      <xsl:if test="$hasCode or $hasDocumentRefs">
          
-      <xsl:element name="arm:ProgrammingCode">
-     
-        <xsl:if test="string-length(normalize-space(Context)) &gt; 0">
-          <xsl:attribute name="Context"><xsl:value-of select="Context"/></xsl:attribute>
-        </xsl:if>
- 
-        <xsl:variable name="str" select="../AnalysisProgrammingCode[FK_AnalysisResults = $parentKey]/Code"/>
-
-        <xsl:if test="string-length(normalize-space(../AnalysisProgrammingCode[FK_AnalysisResults = $parentKey]/Code)) &gt; 0">
-          <xsl:element name="arm:Code">
-            <xsl:call-template name="string-replace">
-              <xsl:with-param name="string" select="$str"/>
-              <xsl:with-param name="from" select="'\n'"/>
-              <xsl:with-param name="to"><xsl:text>&#10;</xsl:text></xsl:with-param>
+        <xsl:element name="arm:ProgrammingCode">
+       
+          <xsl:if test="string-length(normalize-space(Context)) &gt; 0">
+            <xsl:attribute name="Context"><xsl:value-of select="Context"/></xsl:attribute>
+          </xsl:if>
+   
+          <xsl:variable name="str" select="../AnalysisProgrammingCode[FK_AnalysisResults = $parentKey]/Code"/>
+  
+          <xsl:if test="$hasCode">
+            <xsl:element name="arm:Code">
+              <xsl:call-template name="string-replace">
+                <xsl:with-param name="string" select="$str"/>
+                <xsl:with-param name="from" select="'\n'"/>
+                <xsl:with-param name="to"><xsl:text>&#10;</xsl:text></xsl:with-param>
+              </xsl:call-template>
+            </xsl:element>
+          </xsl:if>
+   
+          <xsl:if test="$hasDocumentRefs">
+            <xsl:call-template name="DocumentRefs">
+              <xsl:with-param name="parent">AnalysisProgrammingCode</xsl:with-param>
+              <xsl:with-param name="parentKey"><xsl:value-of select="OID"/></xsl:with-param>
             </xsl:call-template>
-          </xsl:element>
-        </xsl:if>
- 
-        <xsl:variable name="ProgrammingOID"><xsl:value-of select="OID"/></xsl:variable>
-        <xsl:if test="count(../DocumentRefs[parent = 'AnalysisProgrammingCode' and parentKey = $ProgrammingOID]) &gt; 0">
-          <xsl:call-template name="DocumentRefs">
-            <xsl:with-param name="parent">AnalysisProgrammingCode</xsl:with-param>
-            <xsl:with-param name="parentKey"><xsl:value-of select="OID"/></xsl:with-param>
-          </xsl:call-template>
-        </xsl:if>
-      
-      </xsl:element>
-    
+          </xsl:if>
+        
+        </xsl:element>
+        
+      </xsl:if>
     </xsl:for-each>
        	
   </xsl:template>
